@@ -11,8 +11,8 @@ env:
   CLUSTER_NAME: kaiaks001
   CLUSTER_RESOURCE_GROUP: kai-aks
   NAMESPACE: default
-  SECRET: {secret-name}
-  APP_NAME: {app-name}
+  SECRET: acr-secret
+  APP_NAME: ticketing/auth
   
 jobs:
   build:
@@ -57,8 +57,8 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          manifests/deployment.yml
-          manifests/service.yml
+          infra/k8s/auth-depl.yaml
+         
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         imagepullsecrets: |
