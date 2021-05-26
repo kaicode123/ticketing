@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'infra/**'
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  REGISTRY_NAME: "kaiacr"
+  CLUSTER_NAME: "kaiaks001"
+  CLUSTER_RESOURCE_GROUP: "kai-aks"
+  NAMESPACE: "default"
+  SECRET: "acr-secret"
+  APP_NAME: "ticketing/auth"
+  APP_NAME2: "auth"
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    # Set the target Azure Kubernetes Service (AKS) cluster. 
+    - uses: azure/aks-set-context@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        cluster-name: ${{ env.CLUSTER_NAME }}
+        resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+    
+    # Create namespace if doesn't exist
+    - run: |
+        kubectl apply -f infra/k8s
+    
+    
