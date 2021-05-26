@@ -13,6 +13,7 @@ env:
   NAMESPACE: "default"
   SECRET: "acr-secret"
   APP_NAME: "ticketing/auth"
+  APP_NAME2: "auth"
   
 jobs:
   build:
@@ -29,7 +30,7 @@ jobs:
     
     # Container build and push to a Azure Container Registry (ACR)
     - run: |
-        cd ${{ env.APP_NAME }}
+        cd ${{ env.APP_NAME2 }}
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
     
