@@ -59,7 +59,7 @@ jobs:
     - uses: azure/k8s-deploy@v1
       with:
         manifests: |
-          infra/k8s/auth-depl.yaml
+          infra/k8s/expiration-depl.yaml
          
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}
