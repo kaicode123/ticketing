@@ -7,12 +7,12 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  REGISTRY_NAME: kaiacr
-  CLUSTER_NAME: kaiaks001
-  CLUSTER_RESOURCE_GROUP: kai-aks
-  NAMESPACE: default
-  SECRET: acr-secret
-  APP_NAME: ticketing/auth
+  REGISTRY_NAME: "kaiacr"
+  CLUSTER_NAME: "kaiaks001"
+  CLUSTER_RESOURCE_GROUP: "kai-aks"
+  NAMESPACE: "default"
+  SECRET: "acr-secret"
+  APP_NAME: "ticketing/auth"
   
 jobs:
   build:
