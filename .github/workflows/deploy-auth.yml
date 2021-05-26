@@ -8,9 +8,9 @@ on:
 # Environment variables available to all jobs and steps in this workflow
 env:
   REGISTRY_NAME: kaiacr
-  CLUSTER_NAME: {cluster-name}
-  CLUSTER_RESOURCE_GROUP: {resource-group-name}
-  NAMESPACE: {namespace-name}
+  CLUSTER_NAME: kaiaks001
+  CLUSTER_RESOURCE_GROUP: kai-aks
+  NAMESPACE: default
   SECRET: {secret-name}
   APP_NAME: {app-name}
   
